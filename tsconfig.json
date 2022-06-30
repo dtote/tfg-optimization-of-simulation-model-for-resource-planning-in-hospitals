@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2016",
+      "dom"
+    ],
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true,
+    "downlevelIteration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src",
+    "src/interfaces"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*"
+  ]
+}

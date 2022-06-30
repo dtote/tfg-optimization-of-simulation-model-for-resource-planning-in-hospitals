@@ -1,0 +1,29 @@
+{
+  "name": "tfg-optimization-of-simulation-model-for-resource-planning-in-hospitals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtote/tfg-optimization-of-simulation-model-for-resource-planning-in-hospitals.git"
+  },
+  "keywords": [],
+  "author": "Néstor Torres Díaz <neeestor08@gmail.com> (https://github.com/dtote)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtote/tfg-optimization-of-simulation-model-for-resource-planning-in-hospitals/issues"
+  },
+  "homepage": "https://github.com/dtote/tfg-optimization-of-simulation-model-for-resource-planning-in-hospitals#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/yargs": "^17.0.10",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "random-js": "^2.1.0",
+    "yargs": "^17.5.1"
+  }
+}

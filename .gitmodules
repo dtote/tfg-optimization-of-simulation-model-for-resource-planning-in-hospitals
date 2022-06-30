@@ -1,0 +1,3 @@
+[submodule "src/GeneticsJS"]
+	path = src/GeneticsJS
+	url = https://github.com/dtote/GeneticsJS.git
