@@ -1,5 +1,5 @@
-import { randomSearch } from './algorithm/RandomSearch';
-import { ExecutionEngine } from './types/enums/ExecutionEngine';
+import { randomSearch } from '../algorithms/RandomSearch';
+import { ExecutionEngine } from '../enums/ExecutionEngine';
 
 const { candidate: docker } = randomSearch({
   engine: ExecutionEngine.DOCKER,
