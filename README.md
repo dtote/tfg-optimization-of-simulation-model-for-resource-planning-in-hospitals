@@ -92,7 +92,7 @@ Además de esto, se ha añadido la librería de node [`yargs`](https://www.npmjs
 Para ejecutar el algoritmo de búsqueda aleatoria debemos tener en cuenta que para este se puede configurar el número de iteraciones que queremos que realize, durante las cuales el algoritmo se encargará de encontrar la mejor solución posible.
 
 Si invocamos la guía de ayuda, obtendremos el siguiente resultado:
-![Guía de ayuda](/assets/images/random-search.help.png)
+![Guía de ayuda](/assets/random-search-help.png)
 
 Por lo tanto, usos válidos de dicho algoritmo podrían ser los que siguen:
 
@@ -113,7 +113,7 @@ npx ts-node src/optimizacion/algorithm/RandomSearch.ts --iterations 100
 El algoritmo genético podría llegar a tener demasiados elementos configurables, por lo tanto, se ha decidido minimizar estas configuraciones de manera que se haga uso de unas configuraciones preestablecidas, además de permitir configurar ciertos parámetros concretos.
 
 Si invocamos la guía de ayuda, obtendremos el siguiente resultado:
-![Guía de ayuda](/assets/images/genetic-algorithm-help.png)
+![Guía de ayuda](/assets/genetic-algorithm-help.png)
 
 Por lo tanto, usos válidos de dicho algoritmo podrían ser los que siguen:
 
