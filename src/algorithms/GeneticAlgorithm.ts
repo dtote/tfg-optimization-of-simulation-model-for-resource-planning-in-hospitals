@@ -34,7 +34,7 @@ const argv = yargs(process.argv.slice(2))
     p: { type: 'number', default: 5 },
     g: { type: 'number', default: 5 },
     c: { type: 'number', default: 0.8 },
-    o: { type: 'string', default: 'data' },
+    o: { type: 'string', default: 'genetic' },
   })
   .alias('f', 'file')
   .nargs('f', 1)
