@@ -42,6 +42,12 @@ Si realiza este paso puede obviar el resto de instalaciones manuales.
 Con este makefile se nos instalarán todas las dependencias del proyecto, del submódulo de git y de R.
 
 ```bash
+# Clonamos el repositorio
+git clone https://github.com/dtote/tfg-optimization-of-simulation-model-for-resource-planning-in-hospitals.git optimization
+
+# Nos movemos al directorio donde se encuentra el proyecto
+cd optimization
+
 # Ejecutamos el makefile
 make install
 ```
