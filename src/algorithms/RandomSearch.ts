@@ -6,11 +6,11 @@ import { RscriptCommand } from '../commands/RscriptCommand';
 import { ExecutionEngine } from '../enums/ExecutionEngine';
 import { NumericRange } from '../GeneticsJS/src';
 import { Generator } from '../GeneticsJS/src/generator/utils';
-import { stringify } from '../GeneticsJS/src/optimization/utils/stringify';
 import { AlgorithmResponse } from '../interfaces/AlgorithmResponse';
 import { CandidateSolution } from '../interfaces/CandidateSolution';
 import { RandomSearchParams } from '../interfaces/RandomSearchParams';
 import { isLower } from '../utils/isLower';
+import { stringify } from '../utils/stringify';
 
 export function randomSearch(params: RandomSearchParams): AlgorithmResponse {
   const { engine, numberOfIterations } = params;
