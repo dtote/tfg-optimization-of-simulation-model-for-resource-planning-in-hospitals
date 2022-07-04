@@ -4,7 +4,8 @@ import yargs from 'yargs';
 import { DockerCommand } from '../commands/DockerCommand';
 import { RscriptCommand } from '../commands/RscriptCommand';
 import { ExecutionEngine } from '../enums/ExecutionEngine';
-import { Generator } from '../generators/Generator';
+import { NumericRange } from '../GeneticsJS/src';
+import { Generator } from '../GeneticsJS/src/generator/utils';
 import { stringify } from '../GeneticsJS/src/optimization/utils/stringify';
 import { AlgorithmResponse } from '../interfaces/AlgorithmResponse';
 import { CandidateSolution } from '../interfaces/CandidateSolution';
@@ -27,11 +28,7 @@ export function randomSearch(params: RandomSearchParams): AlgorithmResponse {
   } as CandidateSolution;
 
   for (let index = 0; index < numberOfIterations; index++) {
-    const randomNumber = Generator.randomIntegerFromRange({
-      lower: 0,
-      upper: instances.length - 1,
-    });
-
+    const randomNumber = Generator.generateInteger(new NumericRange(0, instances.length - 1));
     const selectedCandidate =
       engine === ExecutionEngine.DOCKER
         ? DockerCommand.run(instances[randomNumber])
