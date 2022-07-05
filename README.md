@@ -52,6 +52,10 @@ cd optimization
 make install
 ```
 
+En caso de tener problemas con la instalación de las dependencias de R, tratar de realizar la [instalación manual de dependencias de R](#instalación-manual-de-dependencias-de-r).
+
+Si se ha realizado correctamente esta instalación, vete a [modo de uso de script en r](#modo-de-uso-script-en-r).
+
 ## **Instalación manual de dependencias**
 
 ```bash
