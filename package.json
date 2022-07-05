@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "genetic": "npx ts-node src/algorithms/GeneticAlgorithm",
+    "random-search": "npx ts-node src/algorithms/RandomSearch"
   },
   "repository": {
     "type": "git",

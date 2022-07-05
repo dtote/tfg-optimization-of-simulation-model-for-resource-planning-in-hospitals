@@ -1,5 +1,9 @@
 # Guía - Optimización de modelo de simulación
 
+Este repositorio contiene el desarrollo realizado por **Néstor Torres Díaz** para el Trabajo de Fin de Grado titulado _Desarrollo de Algoritmos Dirigidos por Retos: Optimización de un modelo de simulación para la planificación de la capacidad y recursos de hospitales durante la pandemia de COVID-19_.
+
+[Ir a la instalación](#r)
+
 ## Repositorio
 
 Para llevar a cabo el desarrollo del proyecto se ha realizado un [fork](https://github.com/dtote/GeneticsJS) del repositorio de la librería [GeneticsJS](https://github.com/GeneticsJS/GeneticsJS).
@@ -48,8 +52,8 @@ git clone https://github.com/dtote/tfg-optimization-of-simulation-model-for-reso
 # Nos movemos al directorio donde se encuentra el proyecto
 cd optimization
 
-# Ejecutamos el makefile
-make install
+# Ejecutamos el makefile con permisos de administrador
+sudo make install
 ```
 
 En caso de tener problemas con la instalación de las dependencias de R, tratar de realizar la [instalación manual de dependencias de R](#instalación-manual-de-dependencias-de-r).
@@ -89,7 +93,24 @@ cd ../..
 
 ## **Instalación manual de dependencias de R**
 
-Tras poder hacer uso de R y de Rscript, podremos pasar a instalar las dependencias que necesitamos tener cargadas en R para poder ejecutar el simulador.
+Es necesario tener permisos de escritura sobre la librería de R para poder instalar las dependencias, ya que de lo contrario nos dirá que no se puede escribir en la misma.
+
+```bash
+Warning in install.packages("devtools", repos = "http://cran.us.r-project.org") :
+  'lib = "/usr/lib64/R/library"' is not writable
+```
+
+Si recibimos un error similar a este, es porque no tenemos permisos de escritura sobre la librería de R.
+Para dar permisos de escritura de forma recursiva a un path concreto, podemos ejecutar lo siguiente:
+
+```bash
+sudo chmod -R u+rw pathname
+
+# En nuestro caso, sería algo como esto
+sudo chmod -R u+rw /usr/lib64/R
+```
+
+Ahora podremos pasar a instalar las dependencias que necesitamos tener cargadas en R para poder ejecutar el simulador.
 
 ```bash
 # Instalamos las dependencias
@@ -135,17 +156,14 @@ Si invocamos la guía de ayuda, obtendremos el siguiente resultado:
 Por lo tanto, usos válidos de dicho algoritmo podrían ser los que siguen:
 
 ```bash
-# Usará el número de iteraciones establecido por defecto, es decir, 5
-npx ts-node src/algorithms/RandomSearch.ts
+# Ejecuta con todos los valores por defecto
+npm run random-search
 
-# Ejecutará 1 vez la búsqueda aleatoria con 100 iteraciones
-npx ts-node src/algorithms/RandomSearch.ts -i 100
+# Ejecuta la búsqueda aleatoria con 5 iteraciones 5 veces y el resultado lo almacena en un fichero con el nombre especificado
+npm run random-search -- -i 5 -t 5 -o random_search_result
 
-# Ejecutará 10 veces la búsqueda aleatoria con 100 iteraciones
-npx ts-node src/algorithms/RandomSearch.ts -i 100 -t 10
-
-# Ejecutará la búsqueda con valores por defecto y guardará el resultado en resultado.json
-npx ts-node src/algorithms/RandomSearch.ts -o resultado
+# Mismo comando, sintaxis alternativa
+npm run random-search -- --iterations 5 --times 5 --output random_search_result
 ```
 
 ### Algoritmo genético
@@ -158,23 +176,14 @@ Si invocamos la guía de ayuda, obtendremos el siguiente resultado:
 Por lo tanto, usos válidos de dicho algoritmo podrían ser los que siguen:
 
 ```bash
-# Usará todos los valores por defecto
-npx ts-node src/algorithms/GeneticAlgorithm.ts
+# Ejecuta con todos los valores por defecto
+npm run genetic
 
-# Lanzará el algoritmo generando 10 individuos en cada generación
-npx ts-node src/algorithms/GeneticAlgorithm.ts --population 10
+# Ejecuta el genético con tamaño de poblacion 5, con 5 generaciones, con probabilidad de cruce 0,8, con mutacion uniforme, y el resultado lo arroja en un fichero con el nombre ga_result.json
+npm run genetic -- -p 5 -g 5 -c 0.8 -f uniform.ts -o ga_result
 
-# Realizará 10 réplicas para cada individuo, quedandose con el fitness medio
-npx ts-node src/algorithms/GeneticAlgorithm.ts --replics 10
-
-# Realizará 100 generaciones de invididuos
-npx ts-node src/algorithms/GeneticAlgorithm.ts --generations 100
-
-# Lanzará el algoritmo con los parámetros establecidos en el fichero de configuración indicado
-npx ts-node src/algorithms/GeneticAlgorithm.ts --file polynomial.ts
-
-# El resultado de la ejecución lo almacenará en un fichero con el nombre indicado
-npx ts-node src/algorithms/GeneticAlgorithm.ts --output outputFileName
+# Mismo comando, sintaxis alternativa
+npm run genetic -- --population 5 --generations 5 --crossoverRate 0.8 --file uniform.ts --output ga_result
 ```
 
 Aparte de estos ejemplos, se puede hacer un uso simultáneo de los parámetros, de manera que podríamos por ejemplo, utilizar una configuración de las ya establecidas, además de configurar el número de individuos de la población, las réplicas a ejecutar por individuo y el número de generaciones.

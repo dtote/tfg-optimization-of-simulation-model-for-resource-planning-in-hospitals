@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := install
 
 babsim: 
-	@echo '🧪 Installing babsim.hospital dependencies...'
+	@echo '🧪 Installing babsim.hospital and its dependencies...'
 	@Rscript -e 'install.packages("devtools", repos = "http://cran.us.r-project.org")'
 	@Rscript -e 'devtools::install_github("https://github.com/RcppCore/Rcpp")'
 	@Rscript -e 'devtools::install_github("r-lib/devtools")'
