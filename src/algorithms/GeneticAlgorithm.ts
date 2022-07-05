@@ -27,11 +27,11 @@ const argv = yargs(process.argv.slice(2))
     f: {
       type: 'string',
       requiresArg: true,
-      default: 'nonUniform.ts',
+      default: 'uniform.ts',
       choices: ['uniform.ts', 'nonUniform.ts', 'polynomial.ts'],
     },
     r: { type: 'number', default: 1 },
-    p: { type: 'number', default: 5 },
+    p: { type: 'number', default: 6 },
     g: { type: 'number', default: 5 },
     c: { type: 'number', default: 0.8 },
     o: { type: 'string', default: 'genetic' },

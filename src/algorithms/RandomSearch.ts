@@ -12,6 +12,33 @@ import { RandomSearchParams } from '../interfaces/RandomSearchParams';
 import { isLower } from '../utils/isLower';
 import { stringify } from '../utils/stringify';
 
+console.time('execution');
+
+const argv = yargs(process.argv.slice(2))
+  .options({
+    i: { type: 'number', default: 5 },
+    t: { type: 'number', default: 1 },
+    o: { type: 'string', default: 'randomSearch' },
+  })
+  .alias('i', 'iterations')
+  .nargs('i', 1)
+  .example('$0 -i 100', 'Runs the random search with specified iterations')
+
+  .alias('t', 'times')
+  .nargs('t', 1)
+  .example('$0 -t 2', 'Runs the random search t times')
+
+  .alias('o', 'outputFile')
+  .alias('o', 'output')
+  .nargs('o', 1)
+  .example('$0 -o output', 'Runs random search with specified name for output file')
+
+  .help('h')
+  .alias('h', 'help')
+  .parseSync();
+
+const { iterations, times, output } = argv;
+
 export function randomSearch(params: RandomSearchParams): AlgorithmResponse {
   const { engine, numberOfIterations } = params;
 
@@ -41,33 +68,6 @@ export function randomSearch(params: RandomSearchParams): AlgorithmResponse {
 
   return { candidate: bestCandidate } as AlgorithmResponse;
 }
-
-console.time('execution');
-
-const argv = yargs(process.argv.slice(2))
-  .options({
-    i: { type: 'number', default: 5 },
-    t: { type: 'number', default: 1 },
-    o: { type: 'string', default: 'randomSearch.json' },
-  })
-  .alias('i', 'iterations')
-  .nargs('i', 1)
-  .example('$0 -i 100', 'Runs the random search with specified iterations')
-
-  .alias('t', 'times')
-  .nargs('t', 1)
-  .example('$0 -t 2', 'Runs the random search t times')
-
-  .alias('o', 'outputFile')
-  .alias('o', 'output')
-  .nargs('o', 1)
-  .example('$0 -o output', 'Runs random search with specified name for output file')
-
-  .help('h')
-  .alias('h', 'help')
-  .parseSync();
-
-const { iterations, times, output } = argv;
 
 const results = [];
 for (let index = 0; index < times; index++) {
